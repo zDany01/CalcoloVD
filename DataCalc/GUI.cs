@@ -6,7 +6,6 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Numerics;
 using System.Windows.Forms;
 
 namespace CalcoloVelocitaDownload
@@ -21,11 +20,12 @@ namespace CalcoloVelocitaDownload
             comboBox1.SelectedIndex = 1; comboBox2.SelectedIndex = 3; //default
         }
 
+
         private void button1_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text == "" || textBox2.Text == "") { return; } // | e || sono rispettivamente or e orElse, nel caso in cui il primo sia vero allora con ||(orElse) il secondo non verrà neanche valutato. analogamente questo vale anche per & e && (and e ?andElse?)
-            BigInteger QuantitaDatiDaScaricare = Convert.ToUInt64(textBox1.Text);
-            BigInteger VelocitaDwl = Convert.ToUInt64(textBox2.Text);
+            if (textBox1.Text == "" || textBox2.Text == "" || textBox1.Text == "." || textBox2.Text == "." || textBox1.Text == "," || textBox2.Text == ",") { return; } // | e || sono rispettivamente or e orElse, nel caso in cui il primo sia vero allora con ||(orElse) il secondo non verrà neanche valutato. analogamente questo vale anche per & e && (and e ?andElse?)
+            decimal QuantitaDatiDaScaricare = decimal.Parse(textBox1.Text.Replace(".",",")); //cambiare il punto in virgola serve al programma per far in modo che prenda il valore come decimal
+            decimal VelocitaDwl = decimal.Parse(textBox2.Text.Replace(".",","));
 
             if (!(QuantitaDatiDaScaricare > 0) || !(VelocitaDwl > 0)) { return; }
             //0 TeraByte, 1 Gigabyte, 2 Megabyte
@@ -38,7 +38,7 @@ namespace CalcoloVelocitaDownload
             //0 Gigabyte, 1 GigaBit, 2 Megabyte, 3 Megabit, 4 KiloByte, 5 Kilobit
             if (comboBox2.SelectedIndex == 0) { VelocitaDwl *= Convert.ToUInt64(Math.Pow(2, 30)); } else if (comboBox2.SelectedIndex == 1) { VelocitaDwl *= 134217728; } else if (comboBox2.SelectedIndex == 2) { VelocitaDwl *= Convert.ToUInt64(Math.Pow(2, 20)); } else if (comboBox2.SelectedIndex == 3) { VelocitaDwl *= 131072; } else if (comboBox2.SelectedIndex == 4) { VelocitaDwl *= Convert.ToUInt64(Math.Pow(2, 10)); } else { VelocitaDwl *= 128; }
 
-            BigInteger tempo = QuantitaDatiDaScaricare / VelocitaDwl;
+            decimal tempo = QuantitaDatiDaScaricare / VelocitaDwl;
             textBox3.Text = ElaboraTempo(tempo);
         }
 
@@ -47,20 +47,19 @@ namespace CalcoloVelocitaDownload
             TextBox txbx = (TextBox)sender;
             foreach (Char _KeyChar in txbx.Text)
             {
-                if (_KeyChar.ToString() == "1" || _KeyChar.ToString() == "2" || _KeyChar.ToString() == "3" || _KeyChar.ToString() == "4" || _KeyChar.ToString() == "5" || _KeyChar.ToString() == "6" || _KeyChar.ToString() == "7" || _KeyChar.ToString() == "8" || _KeyChar.ToString() == "9" || _KeyChar.ToString() == "0")
-                { } else { txbx.Text = txbx.Text.Replace(_KeyChar.ToString(), null); }
+                if (_KeyChar.ToString() != "1" && _KeyChar.ToString() != "2" && _KeyChar.ToString() != "3" && _KeyChar.ToString() != "4" && _KeyChar.ToString() != "5" && _KeyChar.ToString() != "6" && _KeyChar.ToString() != "7" && _KeyChar.ToString() != "8" && _KeyChar.ToString() != "9" && _KeyChar.ToString() != "0" && _KeyChar.ToString() != "." && _KeyChar.ToString() != ",") { txbx.Text = txbx.Text.Replace(_KeyChar.ToString(), null); }
             }
         }
         
-        private static string ElaboraTempo(BigInteger secondi)
+        private static string ElaboraTempo(decimal secondi)
         {
-            BigInteger giorni = secondi / 86400; secondi %= 86400; //86400 = (24*3600), pre-calcolato per diminuire i calcoli
+            decimal giorni = Math.Truncate(secondi / 86400); int isec = (int)(secondi % 86400); //86400 = (24*3600), pre-calcolato per diminuire i calcoli, usando la conversione esplicita con (int) il valore viene automaticamente troncato
 
-            int ore = (int)(secondi / 3600); secondi %= 3600;
+            int ore = (isec / 3600); isec %= 3600;//explicit conversion to int
 
-            int minuti = (int)(secondi / 60); secondi %= 60;
+            int minuti = (isec / 60); isec %= 60;
 
-            return $"{giorni} giorni {ore} ore {minuti} minuti {secondi} secondi.";
+            return $"{giorni} giorni {ore} ore {minuti} minuti {isec} secondi.";
         }
     }
 }
