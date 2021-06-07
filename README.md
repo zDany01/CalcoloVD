@@ -10,7 +10,4 @@ Un piccolo tool che permette di calcolare il tempo necessario, partendo da una v
 </p>
 
 
-L'applicazione attualmente non supporta i numeri decimali quindi se le dimensione dei dati lo è (ES: 4.45GB) per inserire i dati nel modo più giusto moltiplicare le dimensione in GB per 1024 e inserire il risultato nella casella mentre per la velocità di download basterà approsimarla al numero più vicino
-
-ES: <br>4.45GB(× 1024) ≃ 4557MB<br>
-12.7 Mb/s ≈ 13Mb/s
+L'applicazione supporta i numeri decimali, per inserirli si può usare sia il punto che la virgola.
