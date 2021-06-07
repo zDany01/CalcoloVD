@@ -31,12 +31,6 @@ namespace CalcoloVelocitaDownload
             //0 TeraByte, 1 Gigabyte, 2 Megabyte
             if (comboBox1.SelectedIndex == 0)
             {
-                if (QuantitaDatiDaScaricare > 16777214)
-                {
-                    MessageBox.Show("Inserire un numero minore di dati.");
-                    textBox1.Clear(); textBox2.Clear();
-                    return;
-                }
                 QuantitaDatiDaScaricare *= Convert.ToUInt64(Math.Pow(2, 40));
             }
             else if (comboBox1.SelectedIndex == 1) { QuantitaDatiDaScaricare *= Convert.ToUInt64(Math.Pow(2, 30)); } else { QuantitaDatiDaScaricare *= Convert.ToUInt64(Math.Pow(2, 20)); } //conversione in byte
