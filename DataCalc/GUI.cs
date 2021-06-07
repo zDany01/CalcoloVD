@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Numerics;
 using System.Windows.Forms;
 
 namespace CalcoloVelocitaDownload
@@ -23,8 +24,8 @@ namespace CalcoloVelocitaDownload
         private void button1_Click(object sender, EventArgs e)
         {
             if (textBox1.Text == "" || textBox2.Text == "") { return; } // | e || sono rispettivamente or e orElse, nel caso in cui il primo sia vero allora con ||(orElse) il secondo non verrà neanche valutato. analogamente questo vale anche per & e && (and e ?andElse?)
-            ulong QuantitaDatiDaScaricare = Convert.ToUInt64(textBox1.Text);
-            ulong VelocitaDwl = Convert.ToUInt64(textBox2.Text);
+            BigInteger QuantitaDatiDaScaricare = Convert.ToUInt64(textBox1.Text);
+            BigInteger VelocitaDwl = Convert.ToUInt64(textBox2.Text);
 
             if (!(QuantitaDatiDaScaricare > 0) || !(VelocitaDwl > 0)) { return; }
             //0 TeraByte, 1 Gigabyte, 2 Megabyte
@@ -43,7 +44,7 @@ namespace CalcoloVelocitaDownload
             //0 Gigabyte, 1 GigaBit, 2 Megabyte, 3 Megabit, 4 KiloByte, 5 Kilobit
             if (comboBox2.SelectedIndex == 0) { VelocitaDwl *= Convert.ToUInt64(Math.Pow(2, 30)); } else if (comboBox2.SelectedIndex == 1) { VelocitaDwl *= 134217728; } else if (comboBox2.SelectedIndex == 2) { VelocitaDwl *= Convert.ToUInt64(Math.Pow(2, 20)); } else if (comboBox2.SelectedIndex == 3) { VelocitaDwl *= 131072; } else if (comboBox2.SelectedIndex == 4) { VelocitaDwl *= Convert.ToUInt64(Math.Pow(2, 10)); } else { VelocitaDwl *= 128; }
 
-            ulong tempo = QuantitaDatiDaScaricare / VelocitaDwl;
+            BigInteger tempo = QuantitaDatiDaScaricare / VelocitaDwl;
             textBox3.Text = ElaboraTempo(tempo);
         }
 
@@ -57,15 +58,15 @@ namespace CalcoloVelocitaDownload
             }
         }
         
-        private static string ElaboraTempo(ulong secondi)
+        private static string ElaboraTempo(BigInteger secondi)
         {
-            ulong giorni = secondi / (24 * 3600); secondi %= (24 * 3600);
+            BigInteger giorni = secondi / 86400; secondi %= 86400; //86400 = (24*3600), pre-calcolato per diminuire i calcoli
 
-            int ore = Convert.ToInt32(secondi / 3600); secondi %= 3600;
+            int ore = (int)(secondi / 3600); secondi %= 3600;
 
-            int minuti = Convert.ToInt32(secondi / 60); secondi %= 60;
+            int minuti = (int)(secondi / 60); secondi %= 60;
 
-            return $"{giorni} giorni {ore} ore {minuti} minuti {Convert.ToInt32(secondi)} secondi.";
+            return $"{giorni} giorni {ore} ore {minuti} minuti {secondi} secondi.";
         }
     }
 }
