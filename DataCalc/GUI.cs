@@ -57,8 +57,7 @@ namespace CalcoloVelocitaDownload
 
             int ore = (isec / 3600); isec %= 3600;//explicit conversion to int
 
-            int minuti = (isec / 60); isec %= 60;
-
+            int minuti = (isec / 60); isec =Convert.ToInt32(secondi % 86400 % 3600 % 60); //usato nel caso in cui il numero superi {sec}.5 è quindi viene automaticamente arrotondato a {sec}++ grazie al convert.ToInt32, non provare a semplificare nella parentesi apparente bug?
             return $"{giorni} giorni {ore} ore {minuti} minuti {isec} secondi.";
         }
     }
