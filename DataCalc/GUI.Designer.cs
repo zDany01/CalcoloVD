@@ -43,9 +43,9 @@ namespace CalcoloVelocitaDownload
             // 
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.Items.AddRange(new object[] {
-            "TeraByte",
-            "GigaByte",
-            "MegaByte"});
+            "TebiByte",
+            "GibiByte",
+            "MebiByte"});
             this.comboBox1.Location = new System.Drawing.Point(129, 42);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(97, 21);
@@ -84,11 +84,11 @@ namespace CalcoloVelocitaDownload
             this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Items.AddRange(new object[] {
-            "GigaByte(GB/s)",
+            "GibiByte(GiB/s)",
             "GigaBit(Gb/s)",
-            "MegaByte(MB/s)",
+            "MebiByte(MiB/s)",
             "MegaBit(Mb/s)",
-            "KiloByte(KB/s)",
+            "KibiByte(KiB/s)",
             "KiloBit(Kb/s)"});
             this.comboBox2.Location = new System.Drawing.Point(121, 119);
             this.comboBox2.Name = "comboBox2";
