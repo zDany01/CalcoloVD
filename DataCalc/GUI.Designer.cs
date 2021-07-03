@@ -42,6 +42,8 @@ namespace CalcoloVelocitaDownload
             this.ReimpostaDatiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.EsciToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.InfoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.infoAppToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.licenseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.FormMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -154,23 +156,39 @@ namespace CalcoloVelocitaDownload
             // ReimpostaDatiToolStripMenuItem
             // 
             this.ReimpostaDatiToolStripMenuItem.Name = "ReimpostaDatiToolStripMenuItem";
-            this.ReimpostaDatiToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ReimpostaDatiToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.ReimpostaDatiToolStripMenuItem.Text = "Reimposta Dati";
             this.ReimpostaDatiToolStripMenuItem.Click += new System.EventHandler(this.ReimpostaDatiToolStripMenuItem_Click);
             // 
             // EsciToolStripMenuItem
             // 
             this.EsciToolStripMenuItem.Name = "EsciToolStripMenuItem";
-            this.EsciToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.EsciToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.EsciToolStripMenuItem.Text = "Esci";
             this.EsciToolStripMenuItem.Click += new System.EventHandler(this.EsciToolStripMenuItem_Click);
             // 
             // InfoToolStripMenuItem1
             // 
+            this.InfoToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.infoAppToolStripMenuItem,
+            this.licenseToolStripMenuItem});
             this.InfoToolStripMenuItem1.Name = "InfoToolStripMenuItem1";
             this.InfoToolStripMenuItem1.Size = new System.Drawing.Size(24, 20);
             this.InfoToolStripMenuItem1.Text = "?";
-            this.InfoToolStripMenuItem1.Click += new System.EventHandler(this.InfoToolStripMenuItem1_Click);
+            // 
+            // infoAppToolStripMenuItem
+            // 
+            this.infoAppToolStripMenuItem.Name = "infoAppToolStripMenuItem";
+            this.infoAppToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.infoAppToolStripMenuItem.Text = "Info App";
+            this.infoAppToolStripMenuItem.Click += new System.EventHandler(this.InfoAppToolStripMenuItem_Click);
+            // 
+            // licenseToolStripMenuItem
+            // 
+            this.licenseToolStripMenuItem.Name = "licenseToolStripMenuItem";
+            this.licenseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.licenseToolStripMenuItem.Text = "License";
+            this.licenseToolStripMenuItem.Click += new System.EventHandler(this.LicenseToolStripMenuItem_Click);
             // 
             // GUIForm
             // 
@@ -214,6 +232,8 @@ namespace CalcoloVelocitaDownload
         private System.Windows.Forms.ToolStripMenuItem ReimpostaDatiToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem EsciToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem InfoToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem infoAppToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem licenseToolStripMenuItem;
     }
 }
 
