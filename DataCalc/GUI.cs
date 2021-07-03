@@ -45,7 +45,7 @@ namespace CalcoloVelocitaDownload
         private void TextBoxNotNumber(object sender, EventArgs e)
         {
             TextBox txbx = (TextBox)sender;
-            foreach (Char _KeyChar in txbx.Text)
+            foreach (char _KeyChar in txbx.Text)
             {
                 if (_KeyChar.ToString() != "1" && _KeyChar.ToString() != "2" && _KeyChar.ToString() != "3" && _KeyChar.ToString() != "4" && _KeyChar.ToString() != "5" && _KeyChar.ToString() != "6" && _KeyChar.ToString() != "7" && _KeyChar.ToString() != "8" && _KeyChar.ToString() != "9" && _KeyChar.ToString() != "0" && _KeyChar.ToString() != "." && _KeyChar.ToString() != ",") { txbx.Text = txbx.Text.Replace(_KeyChar.ToString(), null); }
             }
