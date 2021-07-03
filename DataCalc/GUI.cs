@@ -71,9 +71,14 @@ namespace CalcoloVelocitaDownload
 
         private void ReimpostaDatiToolStripMenuItem_Click(object sender, EventArgs e) {ResetData();} //EID
 
-        private void InfoToolStripMenuItem1_Click(object sender, EventArgs e) //EID
+        private void InfoAppToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new InfoApp().ShowDialog(); //show modal non permette di ritornare alla finestra principale se prima non si è chiusa quella appena aperta facendo così l'utente non può creare finestre infinite.
+        }
+
+        private void LicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://raw.githubusercontent.com/zDany01/CalcoloVD/main/LICENSE");
         }
     }
 }
