@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Calcolo Velocità Download")]
-[assembly: AssemblyCopyright("zDany01")]
+[assembly: AssemblyCopyright("Copyright © 2021 zDany01")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -21,7 +21,6 @@ using System.Runtime.InteropServices;
 
 // Se il progetto viene esposto a COM, il GUID seguente verrà utilizzato come ID della libreria dei tipi
 [assembly: Guid("a2cbd53e-ab6e-46b0-aa21-afcc7e5317a5")]
-
 // Le informazioni sulla versione di un assembly sono costituite dai seguenti quattro valori:
 //
 //      Versione principale
@@ -32,5 +31,4 @@ using System.Runtime.InteropServices;
 // È possibile specificare tutti i valori oppure impostare valori predefiniti per i numeri relativi alla revisione e alla build
 // usando l'asterisco '*' come illustrato di seguito:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("2.1.1.0")]
-[assembly: AssemblyFileVersion("2.1.1.0")]
+[assembly: AssemblyVersion("2.1.6.0")]

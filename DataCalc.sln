@@ -21,5 +21,11 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6FDE91ED-2CE8-4554-ABAA-E49FA6345092}
+		BuildVersion_BuildVersioningStyle = None.None.Increment.None
+		BuildVersion_UpdateAssemblyVersion = True
+		BuildVersion_StartDate = 2000/1/1
+		BuildVersion_AssemblyInfoFilename = DataCalc\Properties\AssemblyInfo.cs
+		BuildVersion_ConfigurationName = Debug
+		BuildVersion_BuildAction = Both
 	EndGlobalSection
 EndGlobal

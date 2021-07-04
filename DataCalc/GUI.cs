@@ -23,7 +23,7 @@ namespace CalcoloVelocitaDownload
 
         private void ResetData()
         {
-            comboBox1.SelectedIndex = 1; comboBox2.SelectedIndex = 3;
+            comboBox1.SelectedIndex = 3; comboBox2.SelectedIndex = 5;
             textBox1.Clear(); textBox2.Clear(); textBox3.Clear();
         }
 
@@ -34,16 +34,14 @@ namespace CalcoloVelocitaDownload
             decimal VelocitaDwl = decimal.Parse(textBox2.Text.Replace(".",","));
 
             if ((QuantitaDatiDaScaricare <= 0) || (VelocitaDwl <= 0)) { return; }
-            //0 TeraByte, 1 Gigabyte, 2 Megabyte
-            if (comboBox1.SelectedIndex == 0)
-            {
-                QuantitaDatiDaScaricare *= Convert.ToUInt64(Math.Pow(2, 40));
-            }
-            else if (comboBox1.SelectedIndex == 1) { QuantitaDatiDaScaricare *= Convert.ToUInt64(Math.Pow(2, 30)); } else { QuantitaDatiDaScaricare *= Convert.ToUInt64(Math.Pow(2, 20)); } //conversione in byte
 
-            //0 Gigabyte, 1 GigaBit, 2 Megabyte, 3 Megabit, 4 KiloByte, 5 Kilobit
-            if (comboBox2.SelectedIndex == 0) { VelocitaDwl *= Convert.ToUInt64(Math.Pow(2, 30)); } else if (comboBox2.SelectedIndex == 1) { VelocitaDwl *= 134217728; } else if (comboBox2.SelectedIndex == 2) { VelocitaDwl *= Convert.ToUInt64(Math.Pow(2, 20)); } else if (comboBox2.SelectedIndex == 3) { VelocitaDwl *= 131072; } else if (comboBox2.SelectedIndex == 4) { VelocitaDwl *= Convert.ToUInt64(Math.Pow(2, 10)); } else { VelocitaDwl *= 128; }
+            //0 TebiByte, 1 TeraByte, 2 GibiByte, 3 GigaByte, 4 MebiByte, 5 MegaByte
+            int Dtindex = comboBox1.SelectedIndex;
+            if (Dtindex == 0) { QuantitaDatiDaScaricare *= Convert.ToUInt64(Math.Pow(2, 40)); } else if (Dtindex == 1) { QuantitaDatiDaScaricare *= Convert.ToUInt64(Math.Pow(10, 12)); } else if (Dtindex == 2) { QuantitaDatiDaScaricare *= Convert.ToUInt64(Math.Pow(2, 30)); } else if (Dtindex == 3) { QuantitaDatiDaScaricare *= Convert.ToUInt64(Math.Pow(10, 9)); } else if (Dtindex == 4) { QuantitaDatiDaScaricare *= Convert.ToUInt64(Math.Pow(2, 20)); } else { QuantitaDatiDaScaricare *= Convert.ToUInt64(Math.Pow(10, 6)); }
 
+            //0 GibiByte, 1 GigaByte, 2 Gigabit, 3 MebiByte, 4 MegaByte, 5 Megabit, 6 KibiByte, 7 KiloByte, 8 Kilobit
+            int Dlindex = comboBox2.SelectedIndex;
+            if (Dlindex == 0) { VelocitaDwl *= Convert.ToUInt64(Math.Pow(2, 30)); } else if (Dlindex == 1) { VelocitaDwl *= Convert.ToUInt64(Math.Pow(10, 9)); } else if (Dlindex == 2) { VelocitaDwl *= 134217728; } else if (Dlindex == 3) { VelocitaDwl *= Convert.ToUInt64(Math.Pow(2, 20)); } else if (Dlindex == 4) { VelocitaDwl *= Convert.ToUInt64(Math.Pow(10, 6)); } else if (Dlindex == 5) { VelocitaDwl *= 131072; } else if (Dlindex == 6) { VelocitaDwl *= Convert.ToUInt64(Math.Pow(2, 10)); } else if (Dlindex == 7) { VelocitaDwl *= Convert.ToUInt64(Math.Pow(10, 3)); } else { VelocitaDwl *= 128; }
             decimal tempo = QuantitaDatiDaScaricare / VelocitaDwl;
             textBox3.Text = ElaboraTempo(tempo);
         }
