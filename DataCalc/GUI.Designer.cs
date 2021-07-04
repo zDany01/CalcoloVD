@@ -52,8 +52,11 @@ namespace CalcoloVelocitaDownload
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.Items.AddRange(new object[] {
             "TebiByte",
+            "TeraByte",
             "GibiByte",
-            "MebiByte"});
+            "GigaByte",
+            "MebiByte",
+            "MegaByte"});
             this.comboBox1.Location = new System.Drawing.Point(126, 68);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(97, 21);
@@ -93,11 +96,15 @@ namespace CalcoloVelocitaDownload
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Items.AddRange(new object[] {
             "GibiByte(GiB/s)",
+            "GigaByte(GB/s)",
             "GigaBit(Gb/s)",
             "MebiByte(MiB/s)",
+            "MegaByte(MB/s)",
             "MegaBit(Mb/s)",
             "KibiByte(KiB/s)",
-            "KiloBit(Kb/s)"});
+            "KiloByte(KB/s)",
+            "KiloBit(Kb/s)",
+            ""});
             this.comboBox2.Location = new System.Drawing.Point(118, 145);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(106, 21);
@@ -179,14 +186,14 @@ namespace CalcoloVelocitaDownload
             // infoAppToolStripMenuItem
             // 
             this.infoAppToolStripMenuItem.Name = "infoAppToolStripMenuItem";
-            this.infoAppToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.infoAppToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.infoAppToolStripMenuItem.Text = "Info App";
             this.infoAppToolStripMenuItem.Click += new System.EventHandler(this.InfoAppToolStripMenuItem_Click);
             // 
             // licenseToolStripMenuItem
             // 
             this.licenseToolStripMenuItem.Name = "licenseToolStripMenuItem";
-            this.licenseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.licenseToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.licenseToolStripMenuItem.Text = "License";
             this.licenseToolStripMenuItem.Click += new System.EventHandler(this.LicenseToolStripMenuItem_Click);
             // 
