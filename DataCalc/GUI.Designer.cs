@@ -97,14 +97,13 @@ namespace CalcoloVelocitaDownload
             this.comboBox2.Items.AddRange(new object[] {
             "GibiByte(GiB/s)",
             "GigaByte(GB/s)",
-            "GigaBit(Gb/s)",
+            "Gigabit(Gb/s)",
             "MebiByte(MiB/s)",
             "MegaByte(MB/s)",
-            "MegaBit(Mb/s)",
+            "Megabit(Mb/s)",
             "KibiByte(KiB/s)",
             "KiloByte(KB/s)",
-            "KiloBit(Kb/s)",
-            ""});
+            "Kilobit(Kb/s)"});
             this.comboBox2.Location = new System.Drawing.Point(118, 145);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(106, 21);

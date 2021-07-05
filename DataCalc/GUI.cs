@@ -23,7 +23,7 @@ namespace CalcoloVelocitaDownload
 
         private void ResetData()
         {
-            comboBox1.SelectedIndex = 3; comboBox2.SelectedIndex = 5;
+            comboBox1.SelectedIndex = 2; comboBox2.SelectedIndex = 5;
             textBox1.Clear(); textBox2.Clear(); textBox3.Clear();
         }
 
